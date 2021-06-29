@@ -1,0 +1,12 @@
+.search > input {
+  outline: none;
+  border: none;
+  background-color: #d8d8d8;
+  padding: 4px 10px;
+  width: 250px;
+  color: #000000;
+}
+
+.search > input::placeholder {
+  color: #4d4d4d;
+}

@@ -66,7 +66,9 @@ var root = {
             var userData;
             return __generator(this, function (_b) {
                 switch (_b.label) {
-                    case 0: return [4 /*yield*/, fetchApi("https://api.github.com/users/" + name).then(function (res) { return res.json(); })];
+                    case 0: return [4 /*yield*/, fetchApi("https://api.github.com/users/" + name).then(function (res) {
+                            return res.json();
+                        })];
                     case 1:
                         userData = _b.sent();
                         return [2 /*return*/, userData];
@@ -75,15 +77,16 @@ var root = {
         });
     },
     userRepos: function (_a, req) {
-        var name = _a.name, PER_PAGE = _a.PER_PAGE, page = _a.page;
+        var name = _a.name, per_page = _a.per_page, page = _a.page;
         return __awaiter(_this, void 0, void 0, function () {
-            var userData;
+            var userReposData;
             return __generator(this, function (_b) {
                 switch (_b.label) {
-                    case 0: return [4 /*yield*/, fetchApi("https://api.github.com/users/" + name + "/repos?per_page=" + PER_PAGE + "&page=" + page).then(function (res) { return res.json(); })];
+                    case 0: return [4 /*yield*/, fetchApi("https://api.github.com/users/" + name + "/repos?per_page=" + per_page + "&page=" + page).then(function (res) { return res.json(); })];
                     case 1:
-                        userData = _b.sent();
-                        return [2 /*return*/, userData];
+                        userReposData = _b.sent();
+                        console.log(userReposData);
+                        return [2 /*return*/, userReposData];
                 }
             });
         });

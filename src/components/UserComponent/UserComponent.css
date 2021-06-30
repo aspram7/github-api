@@ -1,0 +1,25 @@
+.user-item {
+  padding: 10px 30px;
+  background-color: #4ea2a4;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000000;
+}
+
+.user-item > .avatar-box {
+  border: 6px solid #727272;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+}
+
+.user-item > .avatar-box img {
+  width: 100%;
+}
+
+.user-item > p {
+  margin-top: 5px;
+}

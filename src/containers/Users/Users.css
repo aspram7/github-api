@@ -1,3 +1,16 @@
 .users-section {
-    margin: 60px 20px;
+  margin: 60px 20px;
+}
+
+.search-pagination {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.users-list {
+  margin: 20px 0;
+  display: grid;
+  gap: 20px 30px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }

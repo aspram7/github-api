@@ -1,0 +1,13 @@
+type Query {
+  users(value: String!, per_page: Int!, page: Int!): User
+}
+
+type User {
+  total_count: Int
+  items: [Items]
+}
+
+type Items {
+  login: String
+  avatar_url: String
+}

@@ -1,12 +1,10 @@
-
 import React from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
 import "./NavLink.css";
-
 interface INavLinkProps {
-    className?: string,
-    to: string,
-    children?: React.ReactNode
+  className?: string;
+  to: string;
+  children?: React.ReactNode;
 }
 
 const NavLink: React.FC<INavLinkProps> = ({ className, to, children }) => {
@@ -20,6 +18,6 @@ const NavLink: React.FC<INavLinkProps> = ({ className, to, children }) => {
       {children}
     </RouterNavLink>
   );
-}
+};
 
 export default NavLink;

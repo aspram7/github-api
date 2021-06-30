@@ -55,8 +55,35 @@ var root = {
                     case 0: return [4 /*yield*/, fetchApi("https://api.github.com/search/users?q=" + value + "&per_page=" + per_page + "&page=" + page).then(function (res) { return res.json(); })];
                     case 1:
                         usersData = _b.sent();
-                        console.log(usersData);
                         return [2 /*return*/, usersData];
+                }
+            });
+        });
+    },
+    user: function (_a, req) {
+        var name = _a.name;
+        return __awaiter(_this, void 0, void 0, function () {
+            var userData;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, fetchApi("https://api.github.com/users/" + name).then(function (res) { return res.json(); })];
+                    case 1:
+                        userData = _b.sent();
+                        return [2 /*return*/, userData];
+                }
+            });
+        });
+    },
+    userRepos: function (_a, req) {
+        var name = _a.name, PER_PAGE = _a.PER_PAGE, page = _a.page;
+        return __awaiter(_this, void 0, void 0, function () {
+            var userData;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, fetchApi("https://api.github.com/users/" + name + "/repos?per_page=" + PER_PAGE + "&page=" + page).then(function (res) { return res.json(); })];
+                    case 1:
+                        userData = _b.sent();
+                        return [2 /*return*/, userData];
                 }
             });
         });

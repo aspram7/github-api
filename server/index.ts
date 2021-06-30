@@ -16,9 +16,19 @@ var root = {
     const usersData = await fetchApi(
       `https://api.github.com/search/users?q=${value}&per_page=${per_page}&page=${page}`
     ).then((res) => res.json());
-    console.log(usersData);
-
     return usersData;
+  },
+  user: async ({ name }, req) => {
+    const userData = await fetchApi(
+      `https://api.github.com/users/${name}`
+    ).then((res) => res.json());
+    return userData;
+  },
+  userRepos: async ({ name, PER_PAGE, page }, req) => {
+    const userData = await fetchApi(
+      `https://api.github.com/users/${name}/repos?per_page=${PER_PAGE}&page=${page}`
+    ).then((res) => res.json());
+    return userData;
   },
 };
 

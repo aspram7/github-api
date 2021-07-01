@@ -3,15 +3,14 @@ import { Link as RouterLink } from "react-router-dom";
 import "./UserComponent.css";
 
 interface IUserComponentProps {
-  onUserPage: () => void
   userImg: string
   userName: string
 }
 
-const UserComponent: React.FC<IUserComponentProps> = ({ onUserPage, userImg, userName }) => {
+const UserComponent: React.FC<IUserComponentProps> = ({ userImg, userName }) => {
   return (
     <RouterLink to={`/users/${userName}`}>
-      <div className="user-item" onClick={() => onUserPage()}>
+      <div className="user-item">
         <div className="avatar-box">
           <img src={userImg} alt="user" />
         </div>

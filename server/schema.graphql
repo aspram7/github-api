@@ -1,7 +1,8 @@
 type Query {
   users(value: String!, per_page: Int!, page: Int!): User
   user(name: String!): UserInfo
-  userRepos(name: String!, per_page: Int!, page: Int!): UserRepos
+  userRepos(name: String!, per_page: Int!, page: Int!): [UserRepos]
+  repos(value: String!, per_page: Int!, page: Int!): Repos
 }
 
 type User {
@@ -24,9 +25,21 @@ type UserInfo {
   following: Int
   location: String
   bio: String
+  public_repos: Int
 }
 
 type UserRepos {
   name: String
   html_url: String
 }
+
+type Repos {
+  total_count: Int
+  items: [ReposItem]
+}
+
+type ReposItem {
+  name: String
+  html_url: String
+}
+

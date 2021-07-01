@@ -24,6 +24,7 @@ export const GET_USER_INFO = gql`
       following
       location
       bio
+      public_repos
     }
   }
 `;
@@ -33,6 +34,18 @@ export const GET_USER_REPOS = gql`
     userRepos(name: $name, per_page: $per_page, page: $page) {
       name
       html_url
+    }
+  }
+`;
+
+export const GET_REPOS = gql`
+  query Repos($value: String!, $per_page: Int!, $page: Int!) {
+    repos(value: $value, per_page: $per_page, page: $page) {
+      total_count
+      items {
+        name
+        html_url
+      }
     }
   }
 `;

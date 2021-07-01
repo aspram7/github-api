@@ -1,0 +1,19 @@
+.section-repos { 
+ margin: 60px 20px;
+}
+
+.search-pagination {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.repos-list {
+  margin: 20px 0;
+}
+
+.repos-list > div {
+  background-color: #4ea2a4;
+  margin-bottom: 20px;
+  padding: 8px;
+}

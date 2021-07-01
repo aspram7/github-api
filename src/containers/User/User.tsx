@@ -10,6 +10,7 @@ import "./User.css";
 interface IUser {
   user: IUserInfo;
 }
+
 interface IUserInfo {
   login: string;
   avatar_url: string;
@@ -20,21 +21,27 @@ interface IUserInfo {
   following: number;
   location: string;
   bio: string;
+  public_repos: number
 }
+
 interface IUserName {
   name: string;
 }
+
 interface ParamTypes {
   user: string;
 }
+
 interface IGetUserRepos {
   name: string;
   per_page: number;
   page: number;
 }
+
 interface IUserRepos {
-  userRepos: IUserReposItems;
+  userRepos: Array<IUserReposItems>;
 }
+
 interface IUserReposItems {
   html_url: string;
   name: string;
@@ -64,7 +71,12 @@ const User: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(dataUserRepo);
+   const navigatePage = (n: number) => {
+      page += n;
+      getUserRepos();
+  };
+  
+
 
   return (
     <div className="user-section">
@@ -99,9 +111,17 @@ const User: React.FC = () => {
       </div>
       <div className="repositories-pagination">
         <p>User's repositories</p>
-        {/* <Pagination classNameNext={usersData ? (usersData.users.total_count  / PER_PAGE > page ? "" : "disabled") : "disabled"}  classNamePrev={page > 1 ? "" : "disabled"} navigatePage={navigatePage} /> */}
+        <Pagination classNameNext={dataUserInfo ? (dataUserInfo?.user.public_repos  / PER_PAGE > page ? "" : "disabled") : "disabled"}  classNamePrev={page > 1 ? "" : "disabled"} navigatePage={navigatePage} />
       </div>
-      <section className="repos-list"></section>
+      <div className="repos-list">
+          {dataUserRepo?.userRepos &&  dataUserRepo?.userRepos.map((item, idx) => {
+              return <div className="repo-item" key={idx}> 
+                  <p>{item.name}</p>
+                 <a href={item.html_url} target="_blank" rel="noopener noreferrer">{item.html_url}</a>
+             </div>
+          }) 
+          }
+      </div>
     </div>
   );
 };

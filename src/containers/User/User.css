@@ -26,3 +26,14 @@
   background-color: #4ea2a4;
   padding: 20px 30px;
 }
+
+.repos-list {
+  margin: 20px 0;
+}
+
+.repos-list > div {
+  background-color: #4ea2a4;
+  margin-bottom: 20px;
+  padding: 8px;
+}
+

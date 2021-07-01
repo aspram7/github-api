@@ -33,7 +33,7 @@ const Users: React.FC = () => {
   const [value, setValue] = useState("");
   const [usersData, setUsersData] = useState<IUsers>();
 
-   const client = useApolloClient();
+  const client = useApolloClient();
 
   const searchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -64,8 +64,6 @@ const Users: React.FC = () => {
       getUsers();
   };
 
-  const onUserPage = () => {}; 
-
   return (
     <div className="users-section">
       <div className="search-pagination">
@@ -74,7 +72,7 @@ const Users: React.FC = () => {
       </div>
       <div className="users-list">
           {usersData?.users.items && usersData?.users.items.map((item, idx) => {
-              return  <UserComponent key={idx} onUserPage={onUserPage} userImg={item.avatar_url} userName={item.login} />
+              return  <UserComponent key={idx} userImg={item.avatar_url} userName={item.login} />
           })}
        
       </div>
